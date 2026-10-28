@@ -108,11 +108,11 @@
             overflow-y: auto;
             max-height: 90px;
             padding: 0 10px;
-            margin-bottom: 15px; /* Spazio extra sopra il vino */
+            margin-bottom: 15px; 
         }
         
         .dish-wine {
-            font-size: 14px;
+            font-size: 15px; /* Testo leggermente più grande, tanto è corto */
             font-weight: bold;
             color: var(--viola-uva);
             margin-top: auto;
@@ -120,6 +120,7 @@
             border-top: 1px solid var(--oro);
             width: 80%;
             text-align: center;
+            white-space: nowrap; /* Impedisce categoricamente di andare a capo */
         }
 
         /* --- STILI MOBILE --- */
@@ -152,6 +153,7 @@
                 font-size: 13px; 
                 width: 100%;
                 padding-top: 10px;
+                white-space: nowrap; /* Forza a stare su una riga anche su mobile */
             }
         }
     </style>
@@ -183,7 +185,7 @@
                 <div class="dish-desc">
                     Pane raffermo tostato, burrata cremosa, ricotta forte, lampascioni e granella di pistacchi di Bronte, con un tocco di tartufo nero.
                 </div>
-                <div class="dish-wine">🍷 Primitivo Salento IGT</div>
+                <div class="dish-wine">🍷 Primitivo Salento</div>
             </div>
         </div>
 
@@ -195,7 +197,7 @@
                 <div class="dish-desc">
                     Orecchiette fresche mantecate con funghi cardoncelli e finferli, sfumate al Primitivo, caciocavallo podolico e pangrattato di Altamura.
                 </div>
-                <div class="dish-wine">🍷 Primitivo Gioia del Colle DOC</div>
+                <div class="dish-wine">🍷 Primitivo Gioia del Colle</div>
             </div>
         </div>
 
@@ -207,7 +209,7 @@
                 <div class="dish-desc">
                     Cotta a bassa temperatura nel Primitivo, adagiata su una vellutata di fave al cioccolato fondente e accompagnata da cicorie croccanti.
                 </div>
-                <div class="dish-wine">🍷 Primitivo di Manduria DOC</div>
+                <div class="dish-wine">🍷 Primitivo di Manduria</div>
             </div>
         </div>
 
@@ -219,7 +221,7 @@
                 <div class="dish-desc">
                     Rotolo di pasta di mandorle e miele, con croccante torrone e cannella. Servito con sciroppo di fichi e crema al mascarpone all'arancia.
                 </div>
-                <div class="dish-wine">🍷 Primitivo Dolce Naturale</div>
+                <div class="dish-wine">🍷 Primitivo Dolce</div>
             </div>
         </div>
         

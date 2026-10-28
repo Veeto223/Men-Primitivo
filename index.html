@@ -2,9 +2,8 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Menù Degustazione - Primitivo</title>
-    <!-- Libreria per l'effetto sfoglia pagina -->
     <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.js"></script>
     <style>
         :root {
@@ -24,7 +23,7 @@
             min-height: 100vh;
             font-family: 'Georgia', serif;
             color: var(--testo-scuro);
-            overflow: hidden;
+            overflow: hidden; /* Evita lo scroll della pagina */
         }
 
         .vigneto-bg {
@@ -32,7 +31,7 @@
             top: 0; left: 0; width: 100%; height: 100%;
             pointer-events: none;
             opacity: 0.04;
-            font-size: 200px;
+            font-size: 150px;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
@@ -40,11 +39,10 @@
             z-index: -1;
         }
 
+        /* Il contenitore del libro si adatta allo schermo */
         #book {
-            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
-            width: 800px;
-            height: 600px;
-            border: 3px solid var(--oro);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            border: 2px solid var(--oro);
         }
 
         .page {
@@ -55,7 +53,7 @@
         }
 
         .page-content {
-            padding: 30px 40px;
+            padding: 20px;
             height: 100%;
             box-sizing: border-box;
             display: flex;
@@ -69,59 +67,59 @@
             color: var(--oro);
             justify-content: center;
             text-align: center;
-            border-left: 5px double var(--oro);
-            border-right: 5px double var(--oro);
+            border-left: 4px double var(--oro);
+            border-right: 4px double var(--oro);
         }
         
-        .cover h1 { font-size: 42px; margin-bottom: 10px; letter-spacing: 4px; text-transform: uppercase; font-weight: normal; }
-        .cover .grappolo { font-size: 50px; margin: 20px 0; }
-        .cover p { font-size: 18px; color: var(--crema); font-style: italic; letter-spacing: 1px; }
+        .cover h1 { font-size: 32px; margin-bottom: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: normal; }
+        .cover .grappolo { font-size: 40px; margin: 15px 0; }
+        .cover p { font-size: 16px; color: var(--crema); font-style: italic; }
 
         .dish-title {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: bold;
             color: var(--bordeaux);
             margin-bottom: 5px;
             text-align: center;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         .dish-image {
-            width: 85%;
-            height: 260px;
+            width: 90%;
+            height: 50%; /* Si adatta all'altezza della pagina */
+            max-height: 250px;
             object-fit: cover;
             border-radius: 4px;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-            margin: 15px 0;
-            border: 4px solid #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            margin: 10px 0;
+            border: 3px solid #fff;
         }
 
         .dish-desc {
-            font-size: 13px;
+            font-size: 12px;
             text-align: center;
-            line-height: 1.5;
+            line-height: 1.4;
             color: var(--testo-scuro);
-            padding: 0 10px;
             font-style: italic;
+            overflow-y: auto; /* Permette lo scroll se il testo è troppo lungo */
+            max-height: 80px;
         }
         
         .dish-wine {
-            font-size: 13px;
+            font-size: 11px;
             font-weight: bold;
             color: var(--viola-uva);
             margin-top: auto;
-            padding-bottom: 20px;
-            border-top: 1px solid var(--oro);
             padding-top: 10px;
-            width: 80%;
+            border-top: 1px solid var(--oro);
+            width: 90%;
             text-align: center;
         }
 
         .page-number {
             position: absolute;
-            bottom: 15px;
-            font-size: 12px;
+            bottom: 10px;
+            font-size: 10px;
             color: var(--oro);
             font-weight: bold;
         }
@@ -142,11 +140,11 @@
                 <h1>Menù Primitivo</h1>
                 <div class="grappolo">🍇🍷</div>
                 <p>Un viaggio nei sapori del Sud</p>
-                <p style="margin-top: 40px; font-size: 14px;">Cena Degustazione</p>
+                <p style="margin-top: 30px; font-size: 12px;">Cena Degustazione</p>
             </div>
         </div>
 
-        <!-- 1. ANTIPASTO: CIALLEDDA (Usa piatto3.jpg) -->
+        <!-- ANTIPASTO -->
         <div class="page">
             <div class="page-content">
                 <div class="dish-title">Cialledda Pugliese</div>
@@ -159,7 +157,7 @@
             </div>
         </div>
 
-        <!-- 2. PRIMO: ORECCHIETTE (Usa piatto2.jpg) -->
+        <!-- PRIMO -->
         <div class="page">
             <div class="page-content">
                 <div class="dish-title">Orecchiette nel Bosco</div>
@@ -172,7 +170,7 @@
             </div>
         </div>
 
-        <!-- 3. SECONDO: GUANCIA (Usa piatto1.jpg) -->
+        <!-- SECONDO -->
         <div class="page">
             <div class="page-content">
                 <div class="dish-title">Guancia di Manzo</div>
@@ -185,13 +183,13 @@
             </div>
         </div>
 
-        <!-- 4. DOLCE: SEMIFREDDO (Usa piatto4.jpg) -->
+        <!-- DOLCE -->
         <div class="page">
             <div class="page-content">
                 <div class="dish-title">Semifreddo al Torrone</div>
                 <img src="piatto4.jpg" class="dish-image" alt="Semifreddo">
                 <div class="dish-desc">
-                    Rotolo goloso di pasta di mandorle e miele, con croccante torrone e cannella. Servito con sciroppo di fichi e crema al mascarpone all'arancia.
+                    Rotolo di pasta di mandorle e miele, con croccante torrone e cannella. Servito con sciroppo di fichi e crema al mascarpone all'arancia.
                 </div>
                 <div class="dish-wine">🍷 Abbinamento: Primitivo Dolce Naturale</div>
                 <div class="page-number">🍇 4</div>
@@ -203,20 +201,25 @@
             <div class="page-content">
                 <div class="grappolo">🍇🍷</div>
                 <h2>Buon Appetito!</h2>
-                <p style="margin-top: 20px;">Che il Primitivo scaldi i vostri cuori.</p>
+                <p style="margin-top: 15px;">Che il Primitivo scaldi i vostri cuori.</p>
             </div>
         </div>
     </div>
 
-    <!-- SCRIPT PER ATTIVARE LO SFOGLIAMENTO -->
+    <!-- SCRIPT INTELLIGENTE PER PC E MOBILE -->
     <script>
+        // Rileva se l'utente è su mobile (schermo piccolo)
+        const isMobile = window.innerWidth < 800;
+
         const pageFlip = new St.PageFlip(document.getElementById('book'), {
-            width: 400, 
-            height: 600, 
+            // Se è mobile, usa una pagina larga quanto lo schermo. 
+            // Se è PC, usa due pagine affiancate da 400px.
+            width: isMobile ? (window.innerWidth * 0.9) : 400, 
+            height: isMobile ? (window.innerHeight * 0.8) : 600,
             size: "fixed",
             drawShadow: true,
             showCover: true,
-            usePortrait: false, 
+            usePortrait: isMobile, // Su mobile mostra una pagina alla volta (verticale)
             startZIndex: 0,
             autoSize: true,
             maxShadowOpacity: 1,

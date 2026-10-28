@@ -108,28 +108,18 @@
             overflow-y: auto;
             max-height: 90px;
             padding: 0 10px;
+            margin-bottom: 15px; /* Spazio extra sopra il vino */
         }
         
         .dish-wine {
-            font-size: 13px;
+            font-size: 14px;
             font-weight: bold;
             color: var(--viola-uva);
             margin-top: auto;
-            padding-top: 10px;
+            padding-top: 15px;
             border-top: 1px solid var(--oro);
-            width: 90%;
+            width: 80%;
             text-align: center;
-            /* Impedisce che il testo vada a capo in modo disordinato */
-            white-space: nowrap; 
-        }
-
-        .page-number {
-            position: absolute;
-            bottom: 5px;
-            right: 15px; /* Spostato a destra per non dare fastidio */
-            font-size: 12px;
-            color: var(--oro);
-            font-weight: bold;
         }
 
         /* --- STILI MOBILE --- */
@@ -156,20 +146,12 @@
                 font-size: 12px; 
                 line-height: 1.3; 
                 max-height: 80px;
-                margin-bottom: 5px;
+                margin-bottom: 10px;
             }
             .dish-wine { 
-                font-size: 11px; 
+                font-size: 13px; 
                 width: 100%;
-                /* Permette al testo di andare a capo sul telefono ma in modo pulito */
-                white-space: normal; 
-                padding-top: 8px;
-                margin-bottom: 15px; /* Crea spazio per non far sovrapporre il numero */
-            }
-            .page-number {
-                bottom: 2px; /* Molto in basso */
-                right: 5px;
-                font-size: 10px;
+                padding-top: 10px;
             }
         }
     </style>
@@ -201,8 +183,7 @@
                 <div class="dish-desc">
                     Pane raffermo tostato, burrata cremosa, ricotta forte, lampascioni e granella di pistacchi di Bronte, con un tocco di tartufo nero.
                 </div>
-                <div class="dish-wine">🍷 Abbinamento: Primitivo Salento IGT</div>
-                <div class="page-number">1</div>
+                <div class="dish-wine">🍷 Primitivo Salento IGT</div>
             </div>
         </div>
 
@@ -214,8 +195,7 @@
                 <div class="dish-desc">
                     Orecchiette fresche mantecate con funghi cardoncelli e finferli, sfumate al Primitivo, caciocavallo podolico e pangrattato di Altamura.
                 </div>
-                <div class="dish-wine">🍷 Abbinamento: Primitivo Gioia del Colle DOC</div>
-                <div class="page-number">2</div>
+                <div class="dish-wine">🍷 Primitivo Gioia del Colle DOC</div>
             </div>
         </div>
 
@@ -227,8 +207,7 @@
                 <div class="dish-desc">
                     Cotta a bassa temperatura nel Primitivo, adagiata su una vellutata di fave al cioccolato fondente e accompagnata da cicorie croccanti.
                 </div>
-                <div class="dish-wine">🍷 Abbinamento: Primitivo di Manduria DOC</div>
-                <div class="page-number">3</div>
+                <div class="dish-wine">🍷 Primitivo di Manduria DOC</div>
             </div>
         </div>
 
@@ -240,8 +219,7 @@
                 <div class="dish-desc">
                     Rotolo di pasta di mandorle e miele, con croccante torrone e cannella. Servito con sciroppo di fichi e crema al mascarpone all'arancia.
                 </div>
-                <div class="dish-wine">🍷 Abbinamento: Primitivo Dolce Naturale</div>
-                <div class="page-number">4</div>
+                <div class="dish-wine">🍷 Primitivo Dolce Naturale</div>
             </div>
         </div>
         

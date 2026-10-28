@@ -23,7 +23,7 @@
             min-height: 100vh;
             font-family: 'Georgia', serif;
             color: var(--testo-scuro);
-            overflow: hidden; /* Evita lo scroll della pagina */
+            overflow: hidden;
         }
 
         .vigneto-bg {
@@ -39,10 +39,12 @@
             z-index: -1;
         }
 
-        /* Il contenitore del libro si adatta allo schermo */
+        /* --- STILI PER PC (Default) --- */
         #book {
             box-shadow: 0 10px 30px rgba(0,0,0,0.8);
             border: 2px solid var(--oro);
+            width: 800px;  /* Dimensione fissa per PC (2 pagine) */
+            height: 600px;
         }
 
         .page {
@@ -53,7 +55,7 @@
         }
 
         .page-content {
-            padding: 20px;
+            padding: 30px;
             height: 100%;
             box-sizing: border-box;
             display: flex;
@@ -71,12 +73,12 @@
             border-right: 4px double var(--oro);
         }
         
-        .cover h1 { font-size: 32px; margin-bottom: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: normal; }
-        .cover .grappolo { font-size: 40px; margin: 15px 0; }
-        .cover p { font-size: 16px; color: var(--crema); font-style: italic; }
+        .cover h1 { font-size: 42px; margin-bottom: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: normal; }
+        .cover .grappolo { font-size: 50px; margin: 15px 0; }
+        .cover p { font-size: 18px; color: var(--crema); font-style: italic; }
 
         .dish-title {
-            font-size: 20px;
+            font-size: 24px;
             font-weight: bold;
             color: var(--bordeaux);
             margin-bottom: 5px;
@@ -85,28 +87,28 @@
         }
 
         .dish-image {
-            width: 90%;
-            height: 50%; /* Si adatta all'altezza della pagina */
-            max-height: 250px;
+            width: 85%;
+            height: 50%;
+            max-height: 260px;
             object-fit: cover;
             border-radius: 4px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            margin: 10px 0;
-            border: 3px solid #fff;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+            margin: 15px 0;
+            border: 4px solid #fff;
         }
 
         .dish-desc {
-            font-size: 12px;
+            font-size: 14px;
             text-align: center;
-            line-height: 1.4;
+            line-height: 1.5;
             color: var(--testo-scuro);
             font-style: italic;
-            overflow-y: auto; /* Permette lo scroll se il testo è troppo lungo */
-            max-height: 80px;
+            overflow-y: auto;
+            max-height: 90px;
         }
         
         .dish-wine {
-            font-size: 11px;
+            font-size: 13px;
             font-weight: bold;
             color: var(--viola-uva);
             margin-top: auto;
@@ -118,10 +120,35 @@
 
         .page-number {
             position: absolute;
-            bottom: 10px;
-            font-size: 10px;
+            bottom: 15px;
+            font-size: 12px;
             color: var(--oro);
             font-weight: bold;
+        }
+
+        /* --- STILI PER MOBILE (Media Query) --- */
+        @media screen and (max-width: 768px) {
+            #book {
+                width: 95vw !important;      /* Occupa il 95% della larghezza dello schermo */
+                height: 80vh !important;     /* Occupa l'80% dell'altezza dello schermo */
+            }
+            .page-content {
+                padding: 15px;
+            }
+            .cover h1 { font-size: 28px; }
+            .cover p { font-size: 14px; }
+            .dish-title { font-size: 18px; }
+            .dish-image {
+                height: 45%; /* Immagine più piccola per far spazio al testo */
+                margin: 10px 0;
+            }
+            .dish-desc {
+                font-size: 11px; /* Testo più piccolo per non sforare */
+                line-height: 1.3;
+            }
+            .dish-wine {
+                font-size: 11px;
+            }
         }
     </style>
 </head>
@@ -206,20 +233,23 @@
         </div>
     </div>
 
-    <!-- SCRIPT INTELLIGENTE PER PC E MOBILE -->
     <script>
-        // Rileva se l'utente è su mobile (schermo piccolo)
-        const isMobile = window.innerWidth < 800;
+        const bookElement = document.getElementById('book');
+        
+        // Calcoliamo le dimensioni esatte in pixel per far contentere la libreria
+        const bookWidth = bookElement.offsetWidth;
+        const bookHeight = bookElement.offsetHeight;
 
-        const pageFlip = new St.PageFlip(document.getElementById('book'), {
-            // Se è mobile, usa una pagina larga quanto lo schermo. 
-            // Se è PC, usa due pagine affiancate da 400px.
-            width: isMobile ? (window.innerWidth * 0.9) : 400, 
-            height: isMobile ? (window.innerHeight * 0.8) : 600,
+        // Se siamo su mobile (larghezza < 768px), mostriamo una sola pagina (ritratto)
+        const isMobile = window.innerWidth < 768;
+
+        const pageFlip = new St.PageFlip(bookElement, {
+            width: isMobile ? bookWidth : bookWidth / 2, // Se mobile, tutta la larghezza. Se PC, metà.
+            height: bookHeight,
             size: "fixed",
             drawShadow: true,
             showCover: true,
-            usePortrait: isMobile, // Su mobile mostra una pagina alla volta (verticale)
+            usePortrait: isMobile, // Forza una pagina alla volta su mobile
             startZIndex: 0,
             autoSize: true,
             maxShadowOpacity: 1,
